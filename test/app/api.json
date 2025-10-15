@@ -177,6 +177,38 @@
                 "security": [{ "cookieAuth": [] }]
             }
         },
+        "/api/objects": {
+            "get": {
+                "summary": "Object parameter in query",
+                "operationId": "api:get-objects",
+                "tags": ["query"],
+                "parameters": [
+                    {
+                        "name": "obj",
+                        "in": "query",
+                        "description": "Object parameter in query",
+                        "schema":{
+                            "type": "object",
+                            "properties": {
+                                "key": { "type": "string" }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "501":{
+                        "description": "Object parameters are not implemented",
+                        "content": {
+                            "application/json": {
+                                "schema":{
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/arrays": {
             "post": {
                 "summary": "Test array parameters in querys",
